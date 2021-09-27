@@ -1,0 +1,43 @@
+*,::before,::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    color: #000;
+    /* margin: 20px; */
+}
+
+header {
+    display: flex;
+    background: rgb(243, 233, 241);
+    align-items: center;
+    justify-content: space-around;
+    height: 150px;
+}
+
+.header_logo {
+    width: 15%;
+    margin: 0 20px;
+    object-fit: cover;
+}
+
+.header_title {
+    width: 70%;
+    font-family: 'Caveat', cursive;
+    font-size: 34px;
+    text-align: center;
+}
+
+.header_icon {
+    width: 10%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.header_link {
+    text-decoration: none;
+    color: #000;
+}
