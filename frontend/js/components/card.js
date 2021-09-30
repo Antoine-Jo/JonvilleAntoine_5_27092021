@@ -5,6 +5,7 @@ class Card {
     price;
     imageUrl;
     description;
+    colors;
 
     /**
      * 
