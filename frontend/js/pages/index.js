@@ -12,3 +12,11 @@ class Index {
         })
     };
 }
+
+class Product extends Index {
+    async render() {
+        await this.dataManager.getProduct();
+        new Card(this.DOM, this.dataManager);
+        
+    }
+}

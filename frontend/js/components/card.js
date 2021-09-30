@@ -16,6 +16,7 @@ class Card {
        @param {Number} props.price      // 2900,
        @param {String} props.imageUrl      // "http://localhost:3000/images/teddy_1.jpg",
        @param {String} props.description      // "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+       @param {String} props.colors      // "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
      */
     constructor(domTarget, props){
         this.DOM = document.createElement('article');
@@ -26,7 +27,6 @@ class Card {
         }
         this.render();
     }
-
     render() {
         this.DOM.innerHTML = `
         <a href='./product.html?id=${this._id}' />

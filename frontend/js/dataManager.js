@@ -6,6 +6,7 @@ class DataManager {
     async getAllData() {
         const res = await fetch(this.src);
         this.data = await res.json();
+        // console.log(this.data);
     }
 
     async getProducts() {
@@ -26,4 +27,14 @@ class DataManager {
             "La connexion au serveur n'a pas pu être effectué. Veuillez patienter quelques secondes ! <br>Si le problème persiste, contactez nous.";
         }
     }
-}
+
+    async getProduct() {
+        if (this.data === undefined) await this.getAllData();
+            const result = [];
+            
+                result.push(Object.values(this.data));
+                
+        
+            return result;
+        }
+    }
