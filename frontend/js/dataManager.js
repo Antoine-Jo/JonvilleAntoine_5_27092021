@@ -28,13 +28,10 @@ class DataManager {
         }
     }
 
-    async getProduct() {
+    async getProduct(id) {
         if (this.data === undefined) await this.getAllData();
-            const result = [];
-            
-                result.push(Object.values(this.data));
-                
-        
-            return result;
+        for( const product of this.data){
+            if(product._id === id) return product;
         }
     }
+}

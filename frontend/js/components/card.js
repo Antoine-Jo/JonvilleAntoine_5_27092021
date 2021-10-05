@@ -25,11 +25,13 @@ class Card {
         for (const [key, value] of Object.entries(props)) {
             this[key] = value;
         }
+        this.DOM.onclick= ()=>{
+            window.changePage("product", this._id);
+        }
         this.render();
     }
     render() {
         this.DOM.innerHTML = `
-        <a href='./product.html?id=${this._id}' />
             <img src="${this.imageUrl}" alt="Photo de l'ours en peluche" class="product_img">
             <h2 class="product_title">${this.name}</h2>
             <p class="product_content">${this.description}</p>
