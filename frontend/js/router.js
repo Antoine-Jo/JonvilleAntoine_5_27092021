@@ -14,23 +14,25 @@ class Router {
    * @returns {void}
    */
   showPage(request) {
-      console.log(request.page === "product", request.args)
+      // console.log(request.page === "product", request.args)
     switch (request.page) {
       case "index":
         return (this.page = new Index(this.DOM, this.dataManager));
+      
       case "product":
         return this.page = new Product(
           this.DOM,
           this.dataManager,
           request.args
-        )   ;
-      default:
-        this.page = new Page404(this.DOM);
-    }
+          );
+         
+          default:
+            this.page = new Page404(this.DOM);
+          }
   }
   changePage(newPage, args = null) {
-      console.log(newPage, args);
     this.showPage({page:newPage, args});
+    console.log(newPage, args);
     //changer la barre d'adresse
   }
 

@@ -25,8 +25,9 @@ class Card {
         for (const [key, value] of Object.entries(props)) {
             this[key] = value;
         }
-        this.DOM.onclick= ()=>{
+        this.DOM.onclick= ()=> {
             window.changePage("product", this._id);
+            
         }
         this.render();
     }

@@ -7,7 +7,7 @@ class Product extends Page {
 
   async render() {
     const product = await this.dataManager.getProduct(this.productId);
-      console.log(product, this.productId)
+      // console.log(product, this.productId)
     new Card(this.DOM, product);
   }
 }
