@@ -1,3 +1,6 @@
+/**
+ * @typedef {import("./typedef.js).FicheProduit} FicheProduit
+ */
 class DataManager {
     constructor(src) {
         this.src = src;
@@ -28,6 +31,13 @@ class DataManager {
         }
     }
 
+    /**
+     * [getProduct description]
+     *
+     * @param   {[type]}  id  [id description]
+     *
+     * @return  {Promise.<FicheProduit>}      [return description]
+     */
     async getProduct(id) {
         if (this.data === undefined) await this.getAllData();
         for( const product of this.data){
