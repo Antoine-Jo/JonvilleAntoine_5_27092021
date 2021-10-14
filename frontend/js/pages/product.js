@@ -33,10 +33,9 @@ class Product extends Page {
       <h2 class="product_title">${props.name}</h2>
       <p class="product_content">${props.description}</p>
       <span class="product_price">${props.price / 100 + ".00 €"}</span>
+      <select>-- SVP, choisissez une couleur --</select>
     </article>
     `
   }
-
-  
 
 }
