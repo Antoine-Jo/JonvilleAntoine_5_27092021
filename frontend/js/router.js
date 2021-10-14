@@ -4,6 +4,9 @@ class Router {
     this.dataManager = new DataManager("http://localhost:3000/api/teddies");
     window.changePage = this.changePage.bind(this);
     this.showPage(this.extractPage());
+    window.onpopstate = () =>  this.showPage(this.extractPage());
+    this.returnIndex();
+    
   }
 
   /**
@@ -15,22 +18,32 @@ class Router {
    */
   showPage(request) {
       // console.log(request.page === "product", request.args)
+    this.DOM.innerText = "";
+
     switch (request.page) {
       case "index":
-        return (this.page = new Index(this.DOM, this.dataManager));
+        this.page = new Index(this.DOM, this.dataManager);
+        return;
       
       case "product":
-        return this.page = new Product(
+        this.page = new Product(
           this.DOM,
           this.dataManager,
           request.args
-          );
-         
-          default:
-            this.page = new Page404(this.DOM);
-          }
+        );
+        return;
+      case "404":
+        this.page = new Page404(this.DOM);
+      break;     
+      default:
+        this.page = new Page404(this.DOM);
+      }
   }
+
   changePage(newPage, args = null) {
+    let url = newPage === "index" ? "" : "?"+newPage; 
+    if (args !== null) url += "/"+args;
+    history.pushState({}, newPage, url);
     this.showPage({page:newPage, args});
     console.log(newPage, args);
     //changer la barre d'adresse
@@ -49,4 +62,16 @@ class Router {
     }
     return answer;
   }
+
+
+  returnIndex() {
+    let home = document.querySelector('.header_logo');
+    home.addEventListener('click', () => {
+      window.changePage('index', "frontend/");
+      // window.location.reload();
+    })
+  }
 }
+
+
+// returnIndex();

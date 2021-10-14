@@ -1,3 +1,7 @@
+/**
+ * @typedef {import('../typedef.js').FicheProduit} FicheProduit
+ */
+
 class Card {
 
     _id;
@@ -10,13 +14,7 @@ class Card {
     /**
      * 
      * @param {HTMLElement} domTarget 
-     * @param {Object} props 
-     * @param {String} props._id      // "5be9c8541c9d440000665243",
-       @param {String} props.name      // "Norbert",
-       @param {Number} props.price      // 2900,
-       @param {String} props.imageUrl      // "http://localhost:3000/images/teddy_1.jpg",
-       @param {String} props.description      // "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-       @param {String} props.colors      // "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+     * @param {FicheProduit} props 
      */
     constructor(domTarget, props){
         this.DOM = document.createElement('article');
