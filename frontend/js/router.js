@@ -68,10 +68,9 @@ class Router {
     let home = document.querySelector('.header_logo');
     home.addEventListener('click', () => {
       window.changePage('index', "frontend/");
-      // window.location.reload();
     })
   }
 }
 
 
-// returnIndex();
+
