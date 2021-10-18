@@ -3,6 +3,7 @@ class Product extends Page {
     super(domTarget, dataManager);
     this.productId = idProduct;
     this.render();
+    // this.addBasket();
   }
 
   async render() {
@@ -27,7 +28,7 @@ class Product extends Page {
  * @return {String}          le contenu html de la page
  */
   
-   renderProduct(props) {
+  renderProduct(props) {
 
     const options = props.colors;
     // console.log(options);
@@ -37,12 +38,16 @@ class Product extends Page {
     for(let i = 0; i < options.length; i++) {
 
       let opt = options[i]
-      colors = colors + 
+      colors = colors +
       `
       <option value='${opt}'>${options[i]}</option>
       `
-    console.log(colors);  
     }
+    console.log(colors);  
+    let btnAdd = document.createElement('button');
+    btnAdd = `
+      <button type="submit" class="btn_add">Ajouter au panier</button>
+    `  
     
     return this.DOM.innerHTML = `
     <article class="product">
@@ -53,11 +58,12 @@ class Product extends Page {
     <select>
       <option>Choisissez une couleur${colors}</option> 
     </select>
-    <button type="submit" class="product_btn">Ajouter au panier</button>
+    ${btnAdd}
     </article>
     `
-    }
   }
+
+}
       
     
     

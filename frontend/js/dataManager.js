@@ -29,6 +29,9 @@ class DataManager {
             productsContainer.classList.add('error')
             productsContainer.innerHTML =
             "La connexion au serveur n'a pas pu être effectué. Veuillez patienter quelques secondes ! <br>Si le problème persiste, contactez nous.";
+            setTimeout(() => {
+                window.location.reload();
+            }, 5000);
         }
     }
 
