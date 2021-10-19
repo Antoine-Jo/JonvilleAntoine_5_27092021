@@ -48,10 +48,12 @@ class Product extends Page {
     <img src="${props.imageUrl}" alt="Photo de l'ours en peluche" class="product_img">
     <h2 class="product_title">${props.name}</h2>
     <p class="product_content">${props.description}</p>
-    <span class="product_price">${props.price / 100 + ".00 €"}</span>
-    <select>
-      <option>Choisissez une couleur${colors}</option> 
-    </select>
+    <div class="product_options">
+      <span class="product_price">${props.price / 100 + ".00 €"}</span>
+      <select class="product_colors">
+        <option>Choisissez une couleur${colors}</option> 
+      </select>
+    </div>
     <button type="submit" class="btn_add" onclick="page.addToCart()">Ajouter au panier</button>
     </article>
     `
@@ -78,6 +80,7 @@ class Product extends Page {
     
     basket.push(optionsProduct);
     localStorage.setItem("products", JSON.stringify(basket));
+    // console.log(basket); Vérifie si les objets sont bien push dans le tableau
   }
 
 }

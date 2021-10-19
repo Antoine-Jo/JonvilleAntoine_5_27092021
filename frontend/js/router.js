@@ -35,7 +35,7 @@ class Router {
         return;
       case "404":
         window.page = new Page404(this.DOM);
-      break;     
+        return;     
       default:
         window.page = new Page404(this.DOM);
       }
