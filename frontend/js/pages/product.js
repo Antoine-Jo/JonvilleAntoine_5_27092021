@@ -68,7 +68,16 @@ class Product extends Page {
       price: this.product.price,
       colors: selectOptions.value,
     };
-    console.log(optionsProduct);
+    // console.log(optionsProduct); // Vérifie que l'objet est bien créé
+
+    // Récupération de l'objet dans le LS
+    let basket = [];
+    if (localStorage.getItem("products") !== null) {
+      basket = JSON.parse(localStorage.getItem("products"));
+    }
+    
+    basket.push(optionsProduct);
+    localStorage.setItem("products", JSON.stringify(basket));
   }
 
 }
