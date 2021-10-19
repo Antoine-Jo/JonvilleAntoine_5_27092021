@@ -8,8 +8,16 @@ class DataManager {
     }
 
     async getAllData() {
-        const res = await fetch(this.src);
-        this.data = await res.json();
+        try{
+          const res = await fetch(this.src);
+          this.data = await res.json();
+        }
+        catch(err){
+            throw {
+                status : 404,
+                details : err
+            }
+        }
         // console.log(this.data);
     }
 
@@ -44,9 +52,15 @@ class DataManager {
      * @return  {Promise.<FicheProduit>}      [return description]
      */
     async getProduct(id) {
-        if (this.data === undefined) await this.getAllData();
-        for( const product of this.data){
-            if(product._id === id) return product;
+        try{
+            if (this.data === undefined) await this.getAllData();
+            for( const product of this.data){
+                if(product._id === id) return product;
+            }
+            throw { status : 404, details : "le produit demandé n'est pas dans la liste de produits disponibles"}
+        }
+        catch(err){
+            throw err;
         }
     }
 }

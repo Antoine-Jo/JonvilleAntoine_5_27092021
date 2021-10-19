@@ -1,4 +1,5 @@
 class Router {
+  page;
   constructor(domTarget) {
     this.DOM = domTarget;
     this.dataManager = new DataManager("http://localhost:3000/api/teddies");
@@ -17,26 +18,26 @@ class Router {
    * @returns {void}
    */
   showPage(request) {
-      // console.log(request.page === "product", request.args)
+      console.log(request)
     this.DOM.innerText = "";
 
     switch (request.page) {
       case "index":
-        this.page = new Index(this.DOM, this.dataManager);
+        window.page = new Index(this.DOM, this.dataManager);
         return;
       
       case "product":
-        this.page = new Product(
+        window.page = new Product(
           this.DOM,
           this.dataManager,
           request.args
         );
         return;
       case "404":
-        this.page = new Page404(this.DOM);
+        window.page = new Page404(this.DOM);
       break;     
       default:
-        this.page = new Page404(this.DOM);
+        window.page = new Page404(this.DOM);
       }
   }
 
@@ -45,8 +46,6 @@ class Router {
     if (args !== null) url += "/"+args;
     history.pushState({}, newPage, url);
     this.showPage({page:newPage, args});
-    console.log(newPage, args);
-    //changer la barre d'adresse
   }
 
   extractPage() {
@@ -67,7 +66,8 @@ class Router {
   returnIndex() {
     let home = document.querySelector('.header_logo');
     home.addEventListener('click', () => {
-      window.changePage('index', "frontend/");
+      // window.changePage('index', 'index.html');
+      history.go(-1);
     })
   }
 }

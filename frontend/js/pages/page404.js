@@ -2,7 +2,8 @@ class Page404 extends Page{
     constructor(domTarget){
         super(domTarget, null);
         this.render();
-        this.goHome();
+        //history.deleteUrl({url: urlToRemove});
+        // this.goHome();
     }
 
 
@@ -12,17 +13,17 @@ class Page404 extends Page{
             <div class="err_container">
                 <h2 class="err_title">Désolé !</h2>
                 <p class="err_text">La page que vous cherchez n'existe pas...</p>
-                <button type="button" class="err_btn">Retour à l'accueil</button>
+                <button type="button" class="err_btn" onclick="javascript:history.go(-2)">Retour à l'accueil</button>
             </div>
         
         `
     }
 
-    goHome() {
-        let btn = document.querySelector('button');
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.changePage('index', "frontend/");
-        })
-    }
+    // goHome() {
+    //     let btn = document.querySelector('button');
+    //     btn.addEventListener('click', (e) => {
+    //         e.preventDefault();
+    //         window.changePage('index', "frontend/");
+    //     })
+    // }
 }

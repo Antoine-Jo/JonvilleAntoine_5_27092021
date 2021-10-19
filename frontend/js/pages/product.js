@@ -8,15 +8,14 @@ class Product extends Page {
 
   async render() {
     try {
-      const product = await this.dataManager.getProduct(this.productId);
-        // console.log(product, this.productId)
+      this.product = await this.dataManager.getProduct(this.productId);
+      // console.log("1...",product, this.productId)
         
-        this.DOM.innerHTML = this.renderProduct(product)
+        this.DOM.innerHTML = this.renderProduct(this.product)
       // new Card(this.DOM, product);
     }
     catch(err) {
-      console.error(err);
-      window.changePage(404);
+      window.changePage(err.status);
     }
   }
 
@@ -43,11 +42,6 @@ class Product extends Page {
       <option value='${opt}'>${options[i]}</option>
       `
     }
-    console.log(colors);  
-    let btnAdd = document.createElement('button');
-    btnAdd = `
-      <button type="submit" class="btn_add">Ajouter au panier</button>
-    `  
     
     return this.DOM.innerHTML = `
     <article class="product">
@@ -58,9 +52,23 @@ class Product extends Page {
     <select>
       <option>Choisissez une couleur${colors}</option> 
     </select>
-    ${btnAdd}
+    <button type="submit" class="btn_add" onclick="page.addToCart()">Ajouter au panier</button>
     </article>
     `
+  }
+
+  addToCart(){
+    const selectOptions = document.querySelector("select"); // Selection d'une couleur de peluche
+    // console.log(selectOptions.value); Vérifie si la valeur est bien séléctionné
+    
+    // Récupération des valeurs du produit dans un objet
+    let optionsProduct = {
+      _id: this.product._id,
+      name: this.product.name,
+      price: this.product.price,
+      colors: selectOptions.value,
+    };
+    console.log(optionsProduct);
   }
 
 }
