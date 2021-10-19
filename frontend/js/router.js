@@ -7,7 +7,7 @@ class Router {
     this.showPage(this.extractPage());
     window.onpopstate = () =>  this.showPage(this.extractPage());
     this.returnIndex();
-    
+    this.basket();
   }
 
   /**
@@ -32,6 +32,9 @@ class Router {
           this.dataManager,
           request.args
         );
+        return;
+      case "panier":
+        window.page = new Panier(this.DOM);
         return;
       case "404":
         window.page = new Page404(this.DOM);
@@ -68,6 +71,13 @@ class Router {
     home.addEventListener('click', () => {
       // window.changePage('index', 'index.html');
       history.go(-1);
+    })
+  }
+
+  basket() {
+    let basket = document.querySelector('.header_icon');
+    basket.addEventListener('click', () => {
+      window.changePage("panier");
     })
   }
 }
