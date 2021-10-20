@@ -3,7 +3,6 @@ class Product extends Page {
     super(domTarget, dataManager);
     this.productId = idProduct;
     this.render();
-    // this.addBasket();
   }
 
   async render() {
