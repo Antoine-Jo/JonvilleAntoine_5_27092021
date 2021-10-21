@@ -52,6 +52,7 @@ class Product extends Page {
       <select class="product_colors">
         <option>Choisissez une couleur${colors}</option> 
       </select>
+      <input type="number" value="1" class="product_quantity">
     </div>
     <button type="submit" class="btn_add" onclick="page.addToCart()">Ajouter au panier</button>
     </article>
@@ -61,13 +62,15 @@ class Product extends Page {
   addToCart(){
     const selectOptions = document.querySelector("select"); // Selection d'une couleur de peluche
     // console.log(selectOptions.value); Vérifie si la valeur est bien séléctionné
-    
+    const quantity = document.querySelector('input');
+    console.log(quantity.value);
     // Récupération des valeurs du produit dans un objet
     let optionsProduct = {
       _id: this.product._id,
       name: this.product.name,
       price: this.product.price,
       colors: selectOptions.value,
+      quantite: quantity.value,
     };
     // console.log(optionsProduct); // Vérifie que l'objet est bien créé
 
