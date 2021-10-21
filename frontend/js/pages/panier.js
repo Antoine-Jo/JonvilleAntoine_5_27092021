@@ -27,7 +27,8 @@ class Panier extends Page {
                 <article class="product_line">
                     <h2>${product.name}</h2>
                     <p>${product.colors}</p>
-                    <span>${product.price / 100 + ".00 €"}</span>
+                    <input type="number" value=${product.quantite} class="product_quantity">
+                    <span>${parseFloat(product.price * product.quantite) / 100 + ".00 €"}</span>
                 </article>
                 `
             }
