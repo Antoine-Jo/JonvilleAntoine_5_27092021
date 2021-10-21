@@ -183,4 +183,25 @@ article {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.section_product {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.product_line {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 20px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.form_line {
+    margin-top: 50px;
+}
     

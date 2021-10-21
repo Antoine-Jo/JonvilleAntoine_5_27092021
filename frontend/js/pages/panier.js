@@ -22,18 +22,25 @@ class Panier extends Page {
         } else {  //Sinon afficher les produits enregistré dans le LS
             // console.log("Je ne suis pas vide !");  // Vérifie que ça fonctionne
             for (let product of allProducts) {
-                // product.value = allProducts
-                console.log(product.name);
+
                 this.DOM.innerHTML += `
-                <article>
+                <article class="product_line">
                     <h2>${product.name}</h2>
                     <p>${product.colors}</p>
                     <span>${product.price / 100 + ".00 €"}</span>
                 </article>
-                
-                
                 `
             }
         }
+        // Formulaire validation commande
+        this.DOM.innerHTML += `
+        <div class="form_line">
+            <label for="lastname">Nom :</label>
+            <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required maxlength="20">
+            <span id="missing_name"></span>
+        </div>
+        `
     }
 }
+                
+                
