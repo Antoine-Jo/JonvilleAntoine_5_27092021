@@ -35,12 +35,32 @@ class Panier extends Page {
         }
         // Formulaire validation commande
         this.DOM.innerHTML += `
-        <div class="form_line">
+        <button class="delete" onclick="page.emptyBasket()">Vider le panier</button>
+        <h4 class="total_title">Total de votre commande : <span class="total_price"></span></h4>
+        <form class= "form_list" method="POST">
             <label for="lastname">Nom :</label>
-            <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required maxlength="20">
-            <span id="missing_name"></span>
-        </div>
+            <input type="text" placeholder="Nom" id="lastname" name="user_lastname" class="input_form" required maxlength="20">
+           
+            <label for="firstname">Prénom :</label>
+            <input type="text" placeholder="Prenom" id="firstname" name="user_firstname" class="input_form" required maxlength="20">
+
+            <label for="adress">Adresse :</label>
+            <input type="text" placeholder="Adresse de livraison" id="adress" name="user_adress" class="input_form" required>
+
+            <label for="city">Ville :</label>
+            <input type="text" placeholder="Ville" id="city" name="user_city" class="input_form" required>
+
+            <label for="mail">Adresse mail :</label>
+            <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" class="input_form" required>
+
+            <button type="submit" class="btn_command" id="submit_btn">Commander</button>
+        </form>
         `
+    }
+
+    emptyBasket() {
+        localStorage.removeItem('products');
+        setTimeout("location.reload(true)", 0);
     }
 }
                 

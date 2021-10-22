@@ -200,7 +200,50 @@ article {
     border: 1px solid black;
 }
 
-.form_line {
+.delete {
+    width: 30%;
+    align-self: center;
+    height: 2em;
+    border-radius: 20px;
+}
+
+.total_title {
+    margin-top: 30px;
+    height: 50px;
+}
+
+.total_price {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #000;
+    font-size: 24px;
+}
+
+.form_list {
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+label {
+    margin: 5px;
+    font-weight: bold;
+}
+
+.input_form {
+    height: 2em;
+    margin: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #999;
+}
+
+.btn_command {
+    width: 50%;
+    height: 2em;
+    align-self: center;
+    margin-top: 20px;
+    border-radius: 20px;
 }
     
