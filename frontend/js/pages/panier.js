@@ -121,29 +121,44 @@ class Panier extends Page {
         console.log(order);
         localStorage.setItem('order', JSON.stringify(order));
 
-        const options = {
-            method: "POST",
-            body: JSON.stringify(order),
-            headers: { "Content-Type": "application/json" },
-        };
+        // const options = {
+        //     method: "POST",
+        //     body: JSON.stringify(order),
+        //     headers: { "Content-Type": "application/json" },
+        // };
 
-        let priceConfirmation = totalPrice.innerText;
-        console.log(priceConfirmation);
+        // let priceConfirmation = totalPrice.innerText;
+        // console.log(priceConfirmation);
 
-        fetch("http://localhost:3000/api/teddies/order", options)
-        .then((res) => res.json())
-        .then((data) => {
-          localStorage.clear();
-          console.log(data)
-          localStorage.setItem("orderId", data.orderId);
-          localStorage.setItem("total", priceConfirmation);
-          window.changePage("confirmation");
-        })  
+        // fetch("http://localhost:3000/api/teddies/order", options)
+        // .then((res) => res.json())
+        // .then((data) => {
+        //   localStorage.clear();
+        //   console.log(data)
+        //   localStorage.setItem("orderId", data.orderId);
+        //   localStorage.setItem("total", priceConfirmation);
+        //   window.changePage("confirmation");
+        // })  
+
+        (async () => {
+            const res = await fetch('http://localhost:3000/api/teddies/order', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(order)
+            });
+            const data = await res.json();
+            localStorage.setItem("orderId", data.orderId);
+            console.log(data);
+        })();
+        window.changePage("confirmation");
             
             
     }
-
-
 }
+
+
                 
                 
