@@ -68,7 +68,7 @@ class Product extends Page {
     let optionsProduct = {
       _id: this.product._id,
       name: this.product.name,
-      price: this.product.price,
+      price: parseFloat(this.product.price * quantity.value) / 100,
       colors: selectOptions.value,
       quantite: quantity.value,
     };
