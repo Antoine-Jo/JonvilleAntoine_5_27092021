@@ -81,6 +81,7 @@ class Panier extends Page {
                 
                 // Afficher le résultat sur la page
                 totalPrice.innerHTML = priceTotal + " €";
+                localStorage.setItem("total", priceTotal);
                 
             }
         // }
@@ -120,7 +121,7 @@ class Panier extends Page {
         };
         console.log(order);
         localStorage.setItem('order', JSON.stringify(order));
-
+        
         // const options = {
         //     method: "POST",
         //     body: JSON.stringify(order),
@@ -139,7 +140,7 @@ class Panier extends Page {
         //   localStorage.setItem("total", priceConfirmation);
         //   window.changePage("confirmation");
         // })  
-
+        // let priceConfirmation = totalPrice.innerHTML;
         (async () => {
             const res = await fetch('http://localhost:3000/api/teddies/order', {
                 method: 'POST',
@@ -151,6 +152,7 @@ class Panier extends Page {
             });
             const data = await res.json();
             localStorage.setItem("orderId", data.orderId);
+            // localStorage.setItem("total", priceConfirmation);
             console.log(data);
         })();
         window.changePage("confirmation");
