@@ -28,7 +28,7 @@ class Panier extends Page {
                 <article class="product_line">
                     <h2>${product.name}</h2>
                     <p>${product.colors}</p>
-                    <input type="number" value=${product.quantite} class="product_quantity">
+                    <input type="number" value=${product.quantite} class="product_quantity" aria-labelledby="quantité choisi">
                     <span>${product.price + ".00 €"}</span>
                 </article>
                 `

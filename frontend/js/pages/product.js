@@ -52,7 +52,7 @@ class Product extends Page {
       <select class="product_colors">
         <option>Choisissez une couleur${colors}</option> 
       </select>
-      <input type="number" value="1" class="product_quantity">
+      <input type="number" value="1" class="product_quantity" aria-labelledby="quantité choisi">
     </div>
     <button type="submit" class="btn_add" onclick="page.addToCart()">Ajouter au panier</button>
     </article>
