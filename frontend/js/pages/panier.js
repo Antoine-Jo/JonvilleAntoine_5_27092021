@@ -37,7 +37,7 @@ class Panier extends Page {
         // Formulaire validation commande
         this.DOM.innerHTML += `
         <button class="delete" onclick="page.emptyBasket()">Vider le panier</button>
-        <h4 class="total_title">Total de votre commande : <span class="total_price"></span></h4>
+        <h3 class="total_title">Total de votre commande : <span class="total_price"></span></h3>
         <form class= "form_list">
             <label for="lastname">Nom :</label>
             <input type="text" placeholder="Nom" id="lastname" name="user_lastname" class="input_form" required maxlength="20">
