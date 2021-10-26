@@ -82,6 +82,7 @@ class Product extends Page {
     
     basket.push(optionsProduct);
     localStorage.setItem("products", JSON.stringify(basket));
+    cart.refresh();
     // console.log(basket); Vérifie si les objets sont bien push dans le tableau
   }
 

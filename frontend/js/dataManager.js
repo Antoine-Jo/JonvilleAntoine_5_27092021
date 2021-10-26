@@ -63,4 +63,16 @@ class DataManager {
             throw err;
         }
     }
+
+    async sendOrder(order){
+        const res = await fetch(this.src+'/order', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        });
+        return await res.json();
+    }
 }

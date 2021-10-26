@@ -34,7 +34,7 @@ class Router {
         );
         return;
       case "panier":
-        window.page = new Panier(this.DOM);
+        window.page = new Panier(this.DOM, this.dataManager);
         return;
       case "confirmation":
         window.page = new Confirmation(this.DOM)
@@ -48,7 +48,7 @@ class Router {
   }
 
   changePage(newPage, args = null) {
-    let url = newPage === "index" ? "" : "?"+newPage; 
+    let url = newPage === "index" ? window.location.pathname : "?"+newPage; 
     if (args !== null) url += "/"+args;
     history.pushState({}, newPage, url);
     this.showPage({page:newPage, args});

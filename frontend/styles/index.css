@@ -43,6 +43,9 @@ a {
     font-size: 24px;
     cursor: pointer;
 }
+.header_icon::after {
+    content: attr(qty);
+}
 
 .header_link {
     text-decoration: none;

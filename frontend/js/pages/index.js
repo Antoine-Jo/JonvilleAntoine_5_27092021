@@ -1,7 +1,6 @@
-class Index {
+class Index extends Page {
     constructor(domTarget, dataManager) {
-       this.DOM = domTarget;
-       this.dataManager = dataManager;
+       super(domTarget, dataManager);
        this.render();
     }; 
 

@@ -1,6 +1,6 @@
 class Panier extends Page {
-    constructor(domTarget) {
-        super(domTarget, null)
+    constructor(domTarget, dataManager) {
+        super(domTarget, dataManager);
         this.DOM = document.createElement('section');
         this.DOM.classList.add('section_product')
         domTarget.appendChild(this.DOM);
@@ -38,7 +38,7 @@ class Panier extends Page {
         this.DOM.innerHTML += `
         <button class="delete" onclick="page.emptyBasket()">Vider le panier</button>
         <h3 class="total_title">Total de votre commande : <span class="total_price"></span></h3>
-        <form class= "form_list">
+        <formulaire class= "form_list">
             <label for="lastname">Nom :</label>
             <input type="text" placeholder="Nom" id="lastname" name="user_lastname" class="input_form" required maxlength="20">
            
@@ -55,7 +55,7 @@ class Panier extends Page {
             <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" class="input_form" required>
 
             <button type="submit" class="btn_command" id="submit_btn" onclick="page.toValidate()">Commander</button>
-        </form>
+        </formulaire>
         `
     }
 
@@ -92,8 +92,7 @@ class Panier extends Page {
         setTimeout("location.reload(true)", 0);
     }
 
-    toValidate() {
-        
+    async toValidate() {
         
         const allProducts = JSON.parse(localStorage.getItem("products"));
         let productsBought = [] // Tableau qui reçoit les données
@@ -103,11 +102,11 @@ class Panier extends Page {
             // console.log(productsBought);
         }
 
-        let firstName = document.getElementById('firstname');
-        let lastName = document.getElementById('lastname');
-        let address = document.getElementById('adress');
-        let city = document.getElementById('city');
-        let mail = document.getElementById('mail');
+        const firstName = document.getElementById('firstname');
+        const lastName = document.getElementById('lastname');
+        const address = document.getElementById('adress');
+        const city = document.getElementById('city');
+        const mail = document.getElementById('mail');
         console.log(firstName.value);
         const order = {
             contact : {
@@ -141,22 +140,12 @@ class Panier extends Page {
         //   window.changePage("confirmation");
         // })  
         // let priceConfirmation = totalPrice.innerHTML;
-        (async () => {
-            const res = await fetch('http://localhost:3000/api/teddies/order', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(order)
-            });
-            const data = await res.json();
-            localStorage.setItem("orderId", data.orderId);
-            // localStorage.setItem("total", priceConfirmation);
-            console.log(data);
-        })();
-        window.changePage("confirmation");
-            
+        const data = await this.dataManager.sendOrder(order);
+        localStorage.setItem("orderId", data.orderId);
+        // localStorage.setItem("total", priceConfirmation);
+        console.log(data);
+        cart.refresh();
+        window.changePage("confirmation");          
             
     }
 }
