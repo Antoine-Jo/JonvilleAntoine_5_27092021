@@ -18,7 +18,7 @@ class Panier extends Page {
         if (allProducts === null) {
             //console.log("je suis vide !"); // Vérifie que ça fonctionne
             this.DOM.innerHTML = `
-            <p class="empty_basket">Votre panier est vide, <a class="return_home" onclick="changePage('index');">Veuillez retourner à nos produits</a></p>
+            <p class="empty_basket">Votre panier est vide, <a class="return_home" onclick="changePage('index');location.reload();">Veuillez retourner à nos produits</a></p>
             `
         } else {  //Sinon afficher les produits enregistré dans le LS
             // console.log("Je ne suis pas vide !");  // Vérifie que ça fonctionne
@@ -66,28 +66,31 @@ class Panier extends Page {
         let totalPrice = document.querySelector('.total_price')
         let totalOrder = []; // Variable qui va recevoir tout les prix du panier
         let priceTotal;
-            
-        for (let i = 0; i < allProducts.length; i++) {
-                
-                let total = allProducts[i].price;
-                // console.log(total);
-                //  Mettre les prix dans le tableau
-                totalOrder.push(total)
-                // console.log(totalOrder);
-                // Faire l'addition du tableau
-                const reducer = (accumulator, currentValue) => accumulator + currentValue;
-                priceTotal = totalOrder.reduce(reducer);
-                
-                // Afficher le résultat sur la page
-                totalPrice.innerHTML = priceTotal + " €";
-                localStorage.setItem("total", priceTotal);
-                
+        if (allProducts !== null) {   
+            for (let i = 0; i < allProducts.length; i++) {
+                    
+                    let total = allProducts[i].price;
+                    // console.log(total);
+                    //  Mettre les prix dans le tableau
+                    totalOrder.push(total)
+                    // console.log(totalOrder);
+                    // Faire l'addition du tableau
+                    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+                    priceTotal = totalOrder.reduce(reducer);
+                    
+                    // Afficher le résultat sur la page
+                    totalPrice.innerHTML = priceTotal + " €";
+                    localStorage.setItem("total", priceTotal);
+                    
+            }
+        } else {
+            totalPrice.innerHTML = "0.00 €"
         }
         
     }
 
     emptyBasket() {
-        localStorage.removeItem('products');
+        localStorage.clear();
         setTimeout("location.reload(true)", 0);
     }
 
