@@ -73,7 +73,7 @@ class Router {
     let home = document.querySelector('.header_logo');
     home.addEventListener('click', () => {
       // window.changePage('index', "index");
-      history.go(-1);
+      window.changePage('index');
     })
   }
 

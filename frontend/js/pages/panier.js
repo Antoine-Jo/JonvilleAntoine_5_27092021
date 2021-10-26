@@ -61,14 +61,13 @@ class Panier extends Page {
 
     totalPrice() {
 
-        if(localStorage.getItem("product") !== null) {
- 
-            const allProducts = JSON.parse(localStorage.getItem("products"));
-            let totalPrice = document.querySelector('.total_price')
-            let totalOrder = []; // Variable qui va recevoir tout les prix du panier
-            let priceTotal;
+        
+        const allProducts = JSON.parse(localStorage.getItem("products"));
+        let totalPrice = document.querySelector('.total_price')
+        let totalOrder = []; // Variable qui va recevoir tout les prix du panier
+        let priceTotal;
             
-            for (let i = 0; i < allProducts.length; i++) {
+        for (let i = 0; i < allProducts.length; i++) {
                 
                 let total = allProducts[i].price;
                 // console.log(total);
@@ -83,8 +82,8 @@ class Panier extends Page {
                 totalPrice.innerHTML = priceTotal + " €";
                 localStorage.setItem("total", priceTotal);
                 
-            }
         }
+        
     }
 
     emptyBasket() {
@@ -121,25 +120,6 @@ class Panier extends Page {
         console.log(order);
         localStorage.setItem('order', JSON.stringify(order));
         
-        // const options = {
-        //     method: "POST",
-        //     body: JSON.stringify(order),
-        //     headers: { "Content-Type": "application/json" },
-        // };
-
-        // let priceConfirmation = totalPrice.innerText;
-        // console.log(priceConfirmation);
-
-        // fetch("http://localhost:3000/api/teddies/order", options)
-        // .then((res) => res.json())
-        // .then((data) => {
-        //   localStorage.clear();
-        //   console.log(data)
-        //   localStorage.setItem("orderId", data.orderId);
-        //   localStorage.setItem("total", priceConfirmation);
-        //   window.changePage("confirmation");
-        // })  
-        // let priceConfirmation = totalPrice.innerHTML;
         const data = await this.dataManager.sendOrder(order);
         localStorage.setItem("orderId", data.orderId);
         // localStorage.setItem("total", priceConfirmation);
