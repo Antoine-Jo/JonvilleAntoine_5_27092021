@@ -18,7 +18,7 @@ class Panier extends Page {
         if (allProducts === null) {
             //console.log("je suis vide !"); // Vérifie que ça fonctionne
             this.DOM.innerHTML = `
-            <p class="empty_basket">Votre panier est vide, <a class="return_home" onclick="history.go(-1);">Veuillez retourner à nos produits</a></p>
+            <p class="empty_basket">Votre panier est vide, <a class="return_home" onclick="changePage('index');">Veuillez retourner à nos produits</a></p>
             `
         } else {  //Sinon afficher les produits enregistré dans le LS
             // console.log("Je ne suis pas vide !");  // Vérifie que ça fonctionne
@@ -61,7 +61,7 @@ class Panier extends Page {
 
     totalPrice() {
 
-        // if(localStorage.getItem("product") !== null) {
+        if(localStorage.getItem("product") !== null) {
  
             const allProducts = JSON.parse(localStorage.getItem("products"));
             let totalPrice = document.querySelector('.total_price')
@@ -84,7 +84,7 @@ class Panier extends Page {
                 localStorage.setItem("total", priceTotal);
                 
             }
-        // }
+        }
     }
 
     emptyBasket() {
