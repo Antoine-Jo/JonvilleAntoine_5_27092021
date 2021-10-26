@@ -9,6 +9,7 @@ class Cart{
     refresh(){
         let qty = 0;
         const products = JSON.parse(localStorage.products);
+        console.log(products);
         products.forEach(element => {
             qty += parseInt(element.quantite);
         });
