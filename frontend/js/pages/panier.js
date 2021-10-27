@@ -1,6 +1,6 @@
 class Panier extends Page {
-    constructor(domTarget, dataManager) {
-        super(domTarget, dataManager);
+    constructor(domTarget) {
+        super(domTarget);
         this.DOM = document.createElement('section');
         this.DOM.classList.add('section_product')
         domTarget.appendChild(this.DOM);
@@ -38,24 +38,7 @@ class Panier extends Page {
         this.DOM.innerHTML += `
         <button class="delete" onclick="page.emptyBasket()">Vider le panier</button>
         <h3 class="total_title">Total de votre commande : <span class="total_price"></span></h3>
-        <formulaire class= "form_list">
-            <label for="lastname">Nom :</label>
-            <input type="text" placeholder="Nom" id="lastname" name="user_lastname" class="input_form" required maxlength="20">
-           
-            <label for="firstname">Prénom :</label>
-            <input type="text" placeholder="Prenom" id="firstname" name="user_firstname" class="input_form" required maxlength="20">
-
-            <label for="adress">Adresse :</label>
-            <input type="text" placeholder="Adresse de livraison" id="adress" name="user_adress" class="input_form" required>
-
-            <label for="city">Ville :</label>
-            <input type="text" placeholder="Ville" id="city" name="user_city" class="input_form" required>
-
-            <label for="mail">Adresse mail :</label>
-            <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" class="input_form" required>
-
-            <button type="submit" class="btn_command" id="submit_btn" onclick="page.toValidate()">Commander</button>
-        </formulaire>
+        <button class="validate_order" onclick="page.toValidate()">Passer la commande</button>
         `
     }
 
@@ -94,7 +77,7 @@ class Panier extends Page {
         setTimeout("location.reload(true)", 0);
     }
 
-    async toValidate() {
+    toValidate() {
         
         const allProducts = JSON.parse(localStorage.getItem("products"));
         let productsBought = [] // Tableau qui reçoit les données
@@ -102,34 +85,9 @@ class Panier extends Page {
         for (let i = 0; i < allProducts.length; i++) {
             productsBought.push(allProducts[i]._id)
             // console.log(productsBought);
-        }
-
-        const firstName = document.getElementById('firstname');
-        const lastName = document.getElementById('lastname');
-        const address = document.getElementById('adress');
-        const city = document.getElementById('city');
-        const mail = document.getElementById('mail');
-        console.log(firstName.value);
-        const order = {
-            contact : {
-                firstName: firstName.value,
-                lastName: lastName.value,
-                address: address.value,
-                city: city.value,
-                email: mail.value, 
-            },
-            products: productsBought,
-        };
-        console.log(order);
-        localStorage.setItem('order', JSON.stringify(order));
-        
-        const data = await this.dataManager.sendOrder(order);
-        localStorage.setItem("orderId", data.orderId);
-        // localStorage.setItem("total", priceConfirmation);
-        console.log(data);
-        cart.refresh();
-        window.changePage("confirmation");          
-            
+        }          
+        localStorage.setItem('productsId', JSON.stringify(productsBought))
+        window.changePage("form")  
     }
 }
 

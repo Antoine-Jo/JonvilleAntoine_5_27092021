@@ -34,10 +34,13 @@ class Router {
         );
         return;
       case "panier":
-        window.page = new Panier(this.DOM, this.dataManager);
+        window.page = new Panier(this.DOM);
         return;
       case "confirmation":
         window.page = new Confirmation(this.DOM)
+        return;
+      case "form":
+        window.page = new Form(this.DOM, this.dataManager)
         return;
       case "404":
         window.page = new Page404(this.DOM);
