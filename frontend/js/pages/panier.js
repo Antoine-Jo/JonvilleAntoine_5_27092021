@@ -26,11 +26,11 @@ class Panier extends Page {
 
                 this.DOM.innerHTML += `
                 <article class="product_line">
-                    <h2>${product.name}</h2>
-                    <p>${product.colors}</p>
-                    <input type="number" value=${product.quantite} class="product_quantity" aria-labelledby="quantité choisi">
-                    <span>${product.price + ".00 €"}</span>
-                    <i class="fas fa-trash-alt"></i>
+                    <h2 class="article_title">${product.name}</h2>
+                    <p class="article_color">${product.colors}</p>
+                    <input type="number" value=${product.quantite} class="article_quantity" aria-labelledby="quantité choisi">
+                    <span class="article_price">${product.price + ".00 €"}</span>
+                    <i class="fas fa-trash-alt article_delete"></i>
                 </article>
                 `
             }

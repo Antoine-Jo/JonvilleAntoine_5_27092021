@@ -20,7 +20,7 @@ class Form extends Page {
             <label for="city">Ville :</label>
             <input type="text" placeholder="Ville" id="city" name="user_city" class="input_form" required>
 
-            <label for="mail">Adresse mail :</label>
+            <label for="mail">E-Mail :</label>
             <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" class="input_form" required>
 
             <button type="submit" class="btn_command" id="submit_btn" onclick="page.validateForm()">Commander</button>

@@ -47,13 +47,11 @@ class Product extends Page {
     <img src="${props.imageUrl}" alt="Photo de l'ours en peluche" class="img_product">
     <h2 class="title_product">${props.name}</h2>
     <p class="content_product">${props.description}</p>
-    <div class="options_product">
       <span class="price_product">${props.price / 100 + ".00 €"}</span>
       <select class="colors_product">
         <option>Choisissez une couleur${colors}</option> 
       </select>
-      <input type="number" value="1" class="product_quantity" aria-labelledby="quantité choisi">
-    </div>
+      <input type="number" value="1" class="product_quantity" id="quantity">
     <button type="submit" class="btn_add" onclick="page.addToCart()">Ajouter au panier</button>
     </article>
     `

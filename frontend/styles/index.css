@@ -4,12 +4,6 @@
     padding: 0;
 }
 
-body {
-    background: #f2f2f2;
-    color: #000;
-    /* margin: 20px; */
-}
-
 header {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -40,6 +34,7 @@ header {
     color: rgb(255, 255, 248);
     grid-area: title;
     justify-self: center;
+    margin-bottom: 20px;
 }
 
 .header_icon {
@@ -85,6 +80,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #f2f2f2;
+    color: #000;
 }
 
 /* --------- Index ------------ */
@@ -137,56 +134,249 @@ main {
 /* ---------- Produit unique ------------- */
 
 .one_product {
+    background-color: #fff;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, 0.2fr);
     grid-template-areas: 
-    "image title"
-    "image desc"
-    "image option"
-    "image price"
-    "button button";
+    "image"
+    "title"
+    "desc"
+    "color"
+    "quantity"
+    "price"
+    "btn";
+    width: 95%;
+    height: auto;
+    margin: 30px auto;
+    border-radius: 20px;
 }
 
 .img_product {
     grid-area: image;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
+    border-radius: 20px 20px 0 0;
 }
 
-/* .product_options {
-    display: inline-flex;
-    width: 80%;
-    justify-content: space-around;
-    align-items: center;   
-    margin: 20px; 
+.title_product {
+    grid-area: title;
+    justify-self: center;
+    align-self: center;
+    margin: 10px 0;
 }
 
+.content_product {
+    grid-area: desc;
+    font-size: 20px;
+    padding-left: 10px;
+    align-self: center;
+    justify-self: center;
+    margin: 10px 0;
+}
 
-
-.product_colors {
+.colors_product {
+    grid-area: color;
     height: 2em;
     width: 50%;
-    font-size: 14px;
+    justify-self: center;
+    align-self: center;
+    margin: 10px 0;
 }
 
 .product_quantity {
+    grid-area: quantity;
+    width: 15%;
     height: 2em;
-    width: 10%;
+    justify-self: center;
+    align-self: center;
+    margin: 10px 0;
+}
+
+.price_product {
+    grid-area: price;
+    font-weight: bold;
+    font-size: 20px;
+    justify-self: center;
+    align-self: center;
+    margin: 10px 0;
 }
 
 .btn_add {
-    display: flex;
-    margin: 50px auto 20px auto;
-    width: 70%;
-    height: 2em;
-    align-items: center;
-    justify-content: center;
+    grid-area: btn;
+    width: 50%;
+    height: 3em;
     border-radius: 20px;
-    font-size: 16px;
+    background: rgb(255, 216, 20);
+    justify-self: center;
+    align-self: center;
+    margin: 15px;
+}
+
+/* ------ Panier vide --------- */
+
+.empty_basket {
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.return_home {
+    color: #000;
+    margin-left: 10px;
     cursor: pointer;
-} */
+    text-decoration: underline;
+}
+
+/* ------ Panier plein --------- */
+
+.section_product {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 40px 10px 20px 20px;
+}
+
+.product_line {
+    width: 100%;
+    margin: 10px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.article_title {
+    justify-self: center;
+    align-self: center;
+    padding: 5px;
+}
+
+.article_color {
+    justify-self: center;
+    align-self: center;
+    padding: 5px;
+}
+
+.article_quantity {
+    width: 50%;
+    height: 2em;
+    justify-self: center;
+    align-self: center;
+}
+
+.article_price {
+    font-weight: bold;
+    justify-self: center;
+    align-self: center;
+}
+
+.article_delete {
+    justify-self: center;
+    align-self: center;
+    cursor: grab;
+}
+
+.delete {
+    width: 30%;
+    justify-self: center;
+    align-self: center;
+    border-radius: 20px;
+    height: 1.8em;
+    margin: 10px 0;
+}
+
+.total_title {
+    font-weight: normal;
+    justify-self: center;
+    margin: 20px 0;
+}
+
+.total_price {
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.validate_order {
+    justify-self: center;
+    align-self: center;
+    margin: 20px 0;
+    width: 80%;
+    height: 2.5em;
+    border-radius: 20px;
+    font-size: 18px;
+    background: rgb(255, 216, 20);
+}
+
+/* ------ Formulaire Commande ---------- */
+
+.form_list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 30px 10px 30px 10px;
+    grid-template-areas: 
+    "label input"
+    "label input"
+    "label input"
+    "label input"
+    "label input"
+    "btn btn";
+}
+
+.form_list label {
+    justify-self: start;
+    margin: 10px 5px 10px 10px;
+}
+
+.form_list input {
+    align-self: center;
+    height: 2em;
+    margin-right: 20px;
+}
+
+.btn_command {
+    grid-area: btn;
+    margin: 30px 0;
+    width: 50%;
+    justify-self: center;
+    align-self: center;
+    height: 3em;
+    font-size: 18px;
+    border-radius: 20px;
+    background: rgb(255, 164, 28);
+}
+
+/* -------- Page confirmation --------- */
+
+.display_confirm {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 20px;
+    font-size: 20px;
+}
+
+.display_confirm h2 {
+    margin-bottom: 10px;
+}
+
+.display_confirm span {
+    font-weight: bold;
+}
+
+.display_confirm p {
+    margin: 10px 0 10px 0;
+}
+
+.btn_confirm {
+    margin: auto;
+    margin-top: 20px;
+    width: 30%;
+    padding: 5px;
+    border-radius: 20px;
+}
+
 
 /* CSS PAGE 404 */
 
@@ -219,116 +409,13 @@ main {
     cursor: pointer;
 }
 
-/* CSS Panier */
-
-/* ------ Panier vide --------- */
-
-.empty_basket {
-    font-weight: bold;
-    font-size: 40px;
-    margin-bottom: 30px;
-}
-
-.return_home {
-    color: #000;
-    margin-left: 10px;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-/* ------ Panier plein --------- */
-
-.section_product {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.product_line {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
-    margin-bottom: 20px;
-    padding: 10px;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid black;
-}
-
-.delete {
-    width: 30%;
-    align-self: center;
-    height: 2em;
-    border-radius: 20px;
-}
-
-.total_title {
-    margin-top: 30px;
-    height: 50px;
-}
-
-.total_price {
-    margin-left: 10px;
-    padding: 5px;
-    border: 1px solid #000;
-    font-size: 24px;
-}
-
-.form_list {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-label {
-    margin: 5px;
-    font-weight: bold;
-}
-
-.input_form {
-    height: 2em;
-    margin: 5px;
-    padding-left: 5px;
-    border-radius: 5px;
-    border: 1px solid #999;
-}
-
-.btn_command {
-    width: 50%;
-    height: 2em;
-    align-self: center;
-    margin-top: 20px;
-    border-radius: 20px;
-}
 
 
-/* -------- Page confirmation --------- */
 
-.display_confirm {
-    display: flex;
-    flex-direction: column;
-}
 
-.display_confirm h2 {
-    margin-bottom: 10px;
-}
 
-.display_confirm span {
-    font-weight: bold;
-}
 
-.display_confirm p {
-    margin: 10px 0 10px 0;
-}
 
-.btn_confirm {
-    margin: auto;
-    margin-top: 20px;
-    width: 30%;
-    padding: 5px;
-    border-radius: 20px;
-}
    
 
 
