@@ -43,13 +43,13 @@ class Product extends Page {
     }
     
     return this.DOM.innerHTML = `
-    <article class="product">
-    <img src="${props.imageUrl}" alt="Photo de l'ours en peluche" class="product_img">
-    <h2 class="product_title">${props.name}</h2>
-    <p class="product_content">${props.description}</p>
-    <div class="product_options">
-      <span class="product_price">${props.price / 100 + ".00 €"}</span>
-      <select class="product_colors">
+    <article class="one_product">
+    <img src="${props.imageUrl}" alt="Photo de l'ours en peluche" class="img_product">
+    <h2 class="title_product">${props.name}</h2>
+    <p class="content_product">${props.description}</p>
+    <div class="options_product">
+      <span class="price_product">${props.price / 100 + ".00 €"}</span>
+      <select class="colors_product">
         <option>Choisissez une couleur${colors}</option> 
       </select>
       <input type="number" value="1" class="product_quantity" aria-labelledby="quantité choisi">
