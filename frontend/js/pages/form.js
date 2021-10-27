@@ -9,7 +9,7 @@ class Form extends Page {
         this.DOM.innerHTML = `
         <formulaire class= "form_list">
             <label for="lastname">Nom :</label>
-            <input type="text" placeholder="Nom" id="lastname" name="user_lastname" class="input_form" required maxlength="20">
+            <input type="text" placeholder="Nom" id="lastname" name="user_lastname" class="input_form" required="required" maxlength="20">
         
             <label for="firstname">Prénom :</label>
             <input type="text" placeholder="Prenom" id="firstname" name="user_firstname" class="input_form" required maxlength="20">
@@ -23,12 +23,12 @@ class Form extends Page {
             <label for="mail">Adresse mail :</label>
             <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" class="input_form" required>
 
-            <button type="submit" class="btn_command" id="submit_btn" onclick="page.validateOrder()">Commander</button>
+            <button type="submit" class="btn_command" id="submit_btn" onclick="page.validateForm()">Commander</button>
         </formulaire>
         `
     }
 
-    async validateOrder() {
+    async validateForm() {
         let productsBought = JSON.parse(localStorage.getItem('productsId'));
         console.log(productsBought);
         const firstName = document.getElementById('firstname');
@@ -55,6 +55,14 @@ class Form extends Page {
         // localStorage.setItem("total", priceConfirmation);
         console.log(data);
         cart.refresh();
-        // window.changePage("confirmation");
+        window.changePage("confirmation");
+    }
+
+    checkForm() {
+        const firstName = document.getElementById('firstname');
+        const lastName = document.getElementById('lastname');
+        const address = document.getElementById('adress');
+        const city = document.getElementById('city');
+        const mail = document.getElementById('mail');
     }
 }

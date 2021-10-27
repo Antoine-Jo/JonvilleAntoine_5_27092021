@@ -30,7 +30,7 @@ class Card {
         this.render();
     }
     render() {
-        this.DOM.innerHTML = `
+        this.DOM.innerHTML += `
             <img src="${this.imageUrl}" alt="Photo de l'ours en peluche" class="product_img">
             <h2 class="product_title">${this.name}</h2>
             <p class="product_content">${this.description}</p>

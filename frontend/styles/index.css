@@ -12,21 +12,22 @@ body {
 
 header {
     display: flex;
-    background: rgb(243, 233, 241);
+    background: rgb(19, 25, 33);
     align-items: center;
     justify-content: space-around;
-    height: auto;
+    height: 10em;
 }
 
 a {
     text-decoration: none;
-    color: #000;
+    color: rgb(255, 255, 248);
 }
 
-.header_logo {
+.header_name {
     width: 15%;
-    margin: 0 20px;
-    object-fit: cover;
+    margin: 20px 20px;
+    color: rgb(255, 255, 248);
+    font-family: 'Caveat', cursive;
     cursor: pointer;
 }
 
@@ -35,6 +36,7 @@ a {
     font-family: 'Caveat', cursive;
     font-size: 34px;
     text-align: center;
+    color: rgb(255, 255, 248);
 }
 
 .header_icon {
@@ -42,14 +44,18 @@ a {
     text-align: center;
     font-size: 24px;
     cursor: pointer;
+    color: rgb(255, 255, 248);
 }
 .header_icon::after {
     content: attr(qty);
+    color: rgb(154, 36, 33);
+    position: relative;
+    top: -15px;
+    left: -3px;
 }
 
-.header_link {
-    text-decoration: none;
-    color: #000;
+.list_product {
+    color: black;
 }
 
 .error {
@@ -197,7 +203,7 @@ article {
 .product_line {
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
     margin-bottom: 20px;
     padding: 10px;
     justify-content: space-between;
@@ -288,7 +294,7 @@ footer {
     display: flex;
     justify-content: center;
     margin-top: 30px;
-    background-color: rgb(245, 240, 247);
+    background: rgb(19, 25, 33);
     box-shadow: 0px 0px 5px rgb(192, 179, 179);
     padding-bottom: 15px;
     padding-top: 10px;
@@ -302,7 +308,7 @@ footer div a {
     margin-right: 10px;
     margin-left: 10px;
     font-size: 1em;
-    color: black;
+    color: rgb(255, 255, 248);
 }
 footer div a:hover {
     color: #585858;
