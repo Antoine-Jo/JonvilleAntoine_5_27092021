@@ -51,6 +51,7 @@ class Product extends Page {
       <select class="colors_product">
         <option>Choisissez une couleur${colors}</option> 
       </select>
+      <label for="quantity" class="label_quantity">Choisissez une quantité : </label>
       <input type="number" value="1" class="product_quantity" id="quantity">
     <button type="submit" class="btn_add" onclick="page.addToCart()">Ajouter au panier</button>
     </article>
