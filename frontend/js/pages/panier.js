@@ -6,6 +6,7 @@ class Panier extends Page {
         domTarget.appendChild(this.DOM);
         this.render();
         this.totalPrice();
+        this.deleteProduct();
     }
 
 
@@ -41,6 +42,25 @@ class Panier extends Page {
         <h3 class="total_title">Total de votre commande : <span class="total_price"></span></h3>
         <button class="validate_order" onclick="page.toValidate()">Passer la commande</button>
         `
+    }
+
+    deleteProduct() {
+        let btn_delete = document.querySelectorAll('.article_delete')
+        // console.log(btn_delete);
+        let allProducts = JSON.parse(localStorage.getItem("products"));
+
+        for (let j = 0; j < btn_delete.length; j++) {
+            btn_delete[j].addEventListener('click', (e) => {
+                e.preventDefault();
+                // console.log(btn_delete[j]);
+                let id_product = allProducts[j]._id
+                // console.log(id_product);
+                allProducts = allProducts.filter(el => el._id !== id_product)
+                // console.log(allProducts);
+                localStorage.setItem("products", JSON.stringify(allProducts));
+                location.reload();
+            })
+        }
     }
 
     totalPrice() {

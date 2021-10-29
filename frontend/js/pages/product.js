@@ -75,13 +75,24 @@ class Product extends Page {
 
     // Récupération de l'objet dans le LS
     let basket = [];
+    let basketProduct = localStorage.getItem('products')
+
     if (localStorage.getItem("products") !== null) {
       basket = JSON.parse(localStorage.getItem("products"));
+      if (basketProduct.indexOf(this.product._id) !== -1 && basketProduct.indexOf(selectOptions.value) !== -1) {
+        alert("Produit déjà présent dans le panier !")
+      } else {
+        basket.push(optionsProduct);
+      localStorage.setItem("products", JSON.stringify(basket));
+      cart.refresh();
+      }
+    } else {
+
+      
+      basket.push(optionsProduct);
+      localStorage.setItem("products", JSON.stringify(basket));
+      cart.refresh();
     }
-    
-    basket.push(optionsProduct);
-    localStorage.setItem("products", JSON.stringify(basket));
-    cart.refresh();
     // console.log(basket); Vérifie si les objets sont bien push dans le tableau
   }
 

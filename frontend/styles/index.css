@@ -228,6 +228,8 @@ main {
     font-weight: bold;
     font-size: 40px;
     margin-bottom: 30px;
+    justify-self: center;
+    align-self: center;
 }
 
 .return_home {
@@ -242,8 +244,7 @@ main {
 .section_product {
     display: grid;
     grid-template-columns: 1fr;
-    width: 100%;
-    margin: 40px 10px 20px 20px;
+    margin: 40px 10px 20px 10px;
 }
 
 .product_line {
