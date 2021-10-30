@@ -456,7 +456,7 @@ footer div a:hover {
     }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1440px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
     header {
         grid-template-columns: 1fr 2fr 1fr;
         grid-template-rows: 1fr;
@@ -477,5 +477,54 @@ footer div a:hover {
 
     .form_list {
         width: 60%;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "name title icon";
+    }
+
+    .product {
+        width: 80%;
+    }
+
+    .one_product {
+        width: 40%;
+    }
+
+    .form_list {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "name title icon";
+    }
+
+    .list_product {
+        font-size: 34px;
+    }
+    .product {
+        width: 50%;
+        font-size: 24px;
+    }
+
+    .one_product {
+        width: 30%;
+    }
+
+    .form_list {
+        width: 50%;
+        font-size: 24px;
+    }
+
+    .display_confirm {
+        font-size: 34px;
     }
 }
