@@ -2,8 +2,6 @@ class Page404 extends Page{
     constructor(domTarget){
         super(domTarget, null);
         this.render();
-        //history.deleteUrl({url: urlToRemove});
-        // this.goHome();
     }
 
 
@@ -18,12 +16,4 @@ class Page404 extends Page{
         
         `
     }
-
-    // goHome() {
-    //     let btn = document.querySelector('button');
-    //     btn.addEventListener('click', (e) => {
-    //         e.preventDefault();
-    //         window.changePage('index', "frontend/");
-    //     })
-    // }
 }

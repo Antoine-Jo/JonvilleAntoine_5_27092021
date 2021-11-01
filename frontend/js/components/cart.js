@@ -15,17 +15,6 @@ class Cart{
         });
         if (qty === 0) this.DOM.removeAttribute("qty");
         else this.DOM.setAttribute("qty", qty);
-        // let qty = 0;
-        // if (qty === null) {
-        //     this.DOM.removeAttribute("qty");
-        // } else {
-        //     const products = JSON.parse(localStorage.getItem("products"));
-        //     products.forEach(product => {
-        //         qty += parseInt(product.quantite);
-        //         this.DOM.setAttribute("qty", qty)
-        //     });
-        // }
-        // console.log(products);
     }
 
 }

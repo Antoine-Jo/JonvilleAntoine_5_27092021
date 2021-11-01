@@ -36,7 +36,7 @@ class Panier extends Page {
                 `
             }
         }
-        // Formulaire validation commande
+        // Vider panier / Total commande / valider commande
         this.DOM.innerHTML += `
         <button class="delete" onclick="page.emptyBasket()">Vider le panier</button>
         <h3 class="total_title">Total de votre commande : <span class="total_price"></span></h3>
