@@ -4,7 +4,7 @@ class Page404 extends Page{
         this.render();
     }
 
-
+    // Affichage de la page 404 en cas d'erreur
     render(){
         this.DOM.innerHTML = `
             <img src="./images/ourson.jpg" alt="Photo d'ourson triste" class="err_img">

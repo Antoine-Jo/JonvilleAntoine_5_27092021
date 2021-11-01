@@ -1,3 +1,4 @@
+// Définit un schéma des datas reçu 
 /**
     * 
     * @typedef  {Object} FicheProduit

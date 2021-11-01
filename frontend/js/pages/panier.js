@@ -44,6 +44,7 @@ class Panier extends Page {
         `
     }
 
+    // Fonction qui gère le bouton pour supprimer un produit du panier
     deleteProduct() {
         let btn_delete = document.querySelectorAll('.article_delete')
         // console.log(btn_delete);
@@ -63,6 +64,7 @@ class Panier extends Page {
         }
     }
 
+    // Fonction qui gère le calcul de la commande en fonction des articles mit dans le panier
     totalPrice() {
 
         
@@ -93,11 +95,13 @@ class Panier extends Page {
         
     }
 
+    // Vider le panier de l'ensemble des articles
     emptyBasket() {
         localStorage.clear();
         setTimeout("location.reload(true)", 0);
     }
 
+    // Gère le bouton Valider la commande et switch sur la page du formulaire en enregistrant les id des produits acheté
     toValidate() {
         
         const allProducts = JSON.parse(localStorage.getItem("products"));

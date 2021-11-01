@@ -3,7 +3,7 @@ class Form extends Page {
         super(domTarget, dataManager)
         this.render();
     }
-
+    // Formulaire de validation de commande
     render() {
 
         this.DOM.innerHTML = `
@@ -28,6 +28,7 @@ class Form extends Page {
         `
     }
 
+    // Fonction qui permet de faire l'envoie des données au back à la validation de commande
     async validateForm() {
         let productsBought = JSON.parse(localStorage.getItem('productsId'));
         console.log(productsBought);

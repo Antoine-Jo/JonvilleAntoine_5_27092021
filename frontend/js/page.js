@@ -1,3 +1,4 @@
+// Définit une page avec son constructeur
 class Page{
     
     constructor(domTarget, dataManager) {

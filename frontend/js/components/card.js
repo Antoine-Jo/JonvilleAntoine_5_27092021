@@ -2,6 +2,8 @@
  * @typedef {import('../typedef.js').FicheProduit} FicheProduit
  */
 
+
+// Composant pour définir le visuel d'un produit sur la page Accueil 
 class Card {
 
     _id;

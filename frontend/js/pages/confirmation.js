@@ -4,6 +4,7 @@ class Confirmation extends Page {
         this.render();
     }
 
+    // Affichage de la confirmation de commande avec son prix total et son numéro de commande
     render() {
         
         this.DOM.innerHTML = `

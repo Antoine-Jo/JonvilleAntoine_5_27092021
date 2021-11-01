@@ -1,3 +1,4 @@
+// Page d'un seul produit
 class Product extends Page {
   constructor(domTarget, dataManager, idProduct) {
     super(domTarget, dataManager);
@@ -5,13 +6,13 @@ class Product extends Page {
     this.render();
   }
 
+  // Fonction affichage d'un seul produit en fonction de son ID
   async render() {
     try {
       this.product = await this.dataManager.getProduct(this.productId);
       // console.log("1...",product, this.productId)
         
         this.DOM.innerHTML = this.renderProduct(this.product)
-      // new Card(this.DOM, product);
     }
     catch(err) {
       window.changePage(err.status);
@@ -58,6 +59,7 @@ class Product extends Page {
     `
   }
 
+  // Fonction qui gère le bouton pour Ajouter le produit au panier
   addToCart(){
     const selectOptions = document.querySelector("select"); // Selection d'une couleur de peluche
     // console.log(selectOptions.value); Vérifie si la valeur est bien séléctionné
@@ -77,8 +79,10 @@ class Product extends Page {
     let basket = [];
     let basketProduct = localStorage.getItem('products')
 
+    // Si le LS n'est pas vide
     if (localStorage.getItem("products") !== null) {
       basket = JSON.parse(localStorage.getItem("products"));
+      // Vérifie que si le produit est déjà dans le localStorage (par son id ET sa couleur)
       if (basketProduct.indexOf(this.product._id) !== -1 && basketProduct.indexOf(selectOptions.value) !== -1) {
         alert("Produit déjà présent dans le panier !")
       } else {
@@ -88,7 +92,7 @@ class Product extends Page {
       }
     } else {
 
-      
+      // Si le localStorage est vide on le crée
       basket.push(optionsProduct);
       localStorage.setItem("products", JSON.stringify(basket));
       cart.refresh();

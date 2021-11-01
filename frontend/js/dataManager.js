@@ -1,12 +1,13 @@
 /**
  * @typedef {import('./typedef.js').FicheProduit}  FicheProduit
  */
-
+// Class défini des datas
 class DataManager {
     constructor(src) {
         this.src = src;
     }
 
+    // Fonction qui récupère toutes les datas de l'API
     async getAllData() {
         try{
           const res = await fetch(this.src);
@@ -18,9 +19,10 @@ class DataManager {
                 details : err
             }
         }
-        // console.log(this.data);
+        // console.log(this.data); Permet de vérifier qu'on reçoit bien les datas depuis le back
     }
 
+    // Fonction qui permets d'envoyer les datas reçu dans un array et pouvoir les manipuler
     async getProducts() {
         try {
 
@@ -51,6 +53,7 @@ class DataManager {
      *
      * @return  {Promise.<FicheProduit>}      [return description]
      */
+    // Fonction qui permet de récupérer les datas d'un produit en fonction de son ID
     async getProduct(id) {
         try{
             if (this.data === undefined) await this.getAllData();
@@ -64,6 +67,7 @@ class DataManager {
         }
     }
 
+    // Fonction permettant le POST afin de récupérer un orderID du back
     async sendOrder(order){
         const res = await fetch(this.src+'/order', {
             method: 'POST',

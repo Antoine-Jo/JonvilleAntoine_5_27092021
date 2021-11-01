@@ -17,6 +17,7 @@ class Router {
    * @param {String | null} request.args
    * @returns {void}
    */
+  // Fonction qui liste les différentes pages
   showPage(request) {
       console.log(request)
     this.DOM.innerText = "";
@@ -49,14 +50,14 @@ class Router {
         window.page = new Page404(this.DOM);
       }
   }
-
+  // Fonction qui permet de changer de page
   changePage(newPage, args = null) {
     let url = newPage === "index" ? window.location.pathname : "?"+newPage; 
     if (args !== null) url += "/"+args;
     history.pushState({}, newPage, url);
     this.showPage({page:newPage, args});
   }
-
+  // Fonction pour changer l'URL de la page
   extractPage() {
     const answer = {
       page: window.location.search.slice(1),
@@ -71,7 +72,7 @@ class Router {
     return answer;
   }
 
-
+  // Fonction Retour à l'accueil en cliquant sur le logo dans le Header
   returnIndex() {
     let home = document.querySelector('.header_name');
     home.addEventListener('click', () => {
@@ -79,7 +80,7 @@ class Router {
       window.changePage('index');
     })
   }
-
+  // Fonction pour ouvrir la page Panier sur l'icone dans le header
   basket() {
     let basket = document.querySelector('.header_icon');
     basket.addEventListener('click', () => {

@@ -3,7 +3,7 @@ class Index extends Page {
        super(domTarget, dataManager);
        this.render();
     }; 
-
+    // Affichage de tout les produits disponible 
     async render() {
         this.DOM.innerHTML = `
         <p class="list_product">Nos produits disponible :</p>

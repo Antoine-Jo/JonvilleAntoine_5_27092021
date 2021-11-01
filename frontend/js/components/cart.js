@@ -6,6 +6,7 @@ class Cart{
         window.cart = this;
     }
 
+    // Fonction qui permet d'afficher l'icone Panier avec le nombre d'article déjà présent dans le panier
     refresh(){
         let qty = 0;
         const products = JSON.parse(localStorage.products);
