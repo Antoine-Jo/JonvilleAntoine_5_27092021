@@ -1,3 +1,7 @@
+/**
+ * @typedef {import("./typedef").pageInformation} pageInformation
+ */
+
 class Router {
   page;
   constructor(domTarget) {
@@ -11,13 +15,10 @@ class Router {
   }
 
   /**
-   *
-   * @param {Object} request
-   * @param {String} request.page
-   * @param {String | null} request.args
-   * @returns {void}
+   * Fonction qui liste les différentes pages
+   * @param   {pageInformation} request   les informations de la page à afficher
+   * @returns {void}                      insert  la bonne page dans le DOM
    */
-  // Fonction qui liste les différentes pages
   showPage(request) {
       console.log(request)
     this.DOM.innerText = "";
@@ -57,7 +58,12 @@ class Router {
     history.pushState({}, newPage, url);
     this.showPage({page:newPage, args});
   }
-  // Fonction pour changer l'URL de la page
+  
+  /**
+   * Fonction pour changer l'URL de la page
+   *
+   * @return  {pageInformation}  les informations de la page à afficher
+   */
   extractPage() {
     const answer = {
       page: window.location.search.slice(1),
@@ -65,9 +71,8 @@ class Router {
     };
     if (answer.page === "") answer.page="index";
     if (answer.page.indexOf("/") > -1) {
-      const tmp = answer.page.split("/");
-      answer.args = tmp[1];
-      answer.page = tmp[0];
+      const [page, args] = answer.page.split("/");
+      answer = {args, page};
     }
     return answer;
   }
