@@ -83,7 +83,7 @@ class Product extends Page {
     if (localStorage.getItem("products") !== null) {
       basket = JSON.parse(localStorage.getItem("products"));
       // Vérifie que si le produit est déjà dans le localStorage (par son id ET sa couleur)
-      if (basketProduct.indexOf(this.product._id) !== -1 && basketProduct.indexOf(selectOptions.value) !== -1) {
+      if (basketProduct.indexOf(this.product.name) !== -1 && basketProduct.indexOf(selectOptions.value) !== -1) {
         alert("Produit déjà présent dans le panier !")
       } else {
         basket.push(optionsProduct);

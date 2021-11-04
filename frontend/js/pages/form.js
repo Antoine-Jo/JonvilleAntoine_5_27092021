@@ -2,6 +2,7 @@ class Form extends Page {
     constructor(domTarget, dataManager) {
         super(domTarget, dataManager)
         this.render();
+        this.checkForm();
     }
     // Formulaire de validation de commande
     render() {
@@ -23,13 +24,14 @@ class Form extends Page {
             <label for="mail">E-Mail :</label>
             <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" class="input_form" required>
 
-            <button type="submit" class="btn_command" id="submit_btn" onclick="page.validateForm()">Commander</button>
+            <button type="submit" class="btn_command" id="submit_btn" onclick="page.validateForm();">Commander</button>
         </formulaire>
         `
     }
 
     // Fonction qui permet de faire l'envoie des données au back à la validation de commande
     async validateForm() {
+
         let productsBought = JSON.parse(localStorage.getItem('productsId'));
         console.log(productsBought);
         const firstName = document.getElementById('firstname');
@@ -65,5 +67,6 @@ class Form extends Page {
         const address = document.getElementById('adress');
         const city = document.getElementById('city');
         const mail = document.getElementById('mail');
+        
     }
 }
