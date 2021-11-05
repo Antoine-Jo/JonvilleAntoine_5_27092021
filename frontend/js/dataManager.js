@@ -1,5 +1,7 @@
 /**
  * @typedef {import('./typedef.js').FicheProduit}  FicheProduit
+ * @typedef {import('./typedef.js').FicheOrder}  FicheOrder
+ * 
  */
 // Class défini des datas
 class DataManager {
@@ -23,6 +25,11 @@ class DataManager {
     }
 
     // Fonction qui permets d'envoyer les datas reçu dans un array et pouvoir les manipuler
+    /**
+     * [getProducts description]
+     *
+     * @return  {Promise.<FicheProduit>}  [return description]
+     */
     async getProducts() {
         try {
 
@@ -68,6 +75,11 @@ class DataManager {
     }
 
     // Fonction permettant le POST afin de récupérer un orderID du back
+    /**
+     * 
+     * @param {FicheOrder} order 
+     * @returns {String}
+     */
     async sendOrder(order){
         const res = await fetch(this.src+'/order', {
             method: 'POST',

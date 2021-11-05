@@ -16,4 +16,14 @@
  * @property {String | null}  args    l'id du produit
  */
 
+/**
+ * @typedef {Object} FicheOrder
+ * @property {String} firstName   // Prénom client
+ * @property {String} lastName  // Nom du client
+ * @property {String} address  // Adresse du client
+ * @property {String} city  // Ville du client
+ * @property {String} email  // Email du client
+ * @property {String} products  // Id des produits du panier
+ */
+
 module.exports = {};

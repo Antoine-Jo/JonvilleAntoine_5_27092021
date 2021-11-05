@@ -51,7 +51,17 @@ class Router {
         window.page = new Page404(this.DOM);
       }
   }
+
+  
   // Fonction qui permet de changer de page
+  /**
+   * [changePage description]
+   *
+   * @param   {pageInformation}  [newPage description]
+   * 
+   *
+   * @return  {void}           [return description]
+   */
   changePage(newPage, args = null) {
     let url = newPage === "index" ? window.location.pathname : "?"+newPage; 
     if (args !== null) url += "/"+args;
