@@ -14,6 +14,7 @@ class DataManager {
         try{
           const res = await fetch(this.src);
           this.data = await res.json();
+          console.log(this.data);
         }
         catch(err){
             throw {
@@ -37,6 +38,7 @@ class DataManager {
             const result = [];
             for (const value of Object.values(this.data)) {
                 result.push(value);
+                console.log(result);
             }
             return result;
         }

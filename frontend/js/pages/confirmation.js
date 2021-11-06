@@ -15,7 +15,7 @@ class Confirmation extends Page {
             <button class="btn_confirm" onclick="changePage('index');location.reload()">Confirmer</button>
         </div>
         `;
-        localStorage.clear();
+        // localStorage.clear();
     }
 
 }

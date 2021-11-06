@@ -15,7 +15,7 @@ class Router {
   }
 
   /**
-   * Fonction qui liste les différentes pages
+   * Fonction qui affiche les différentes pages
    * @param   {pageInformation} request   les informations de la page à afficher
    * @returns {void}                      insert  la bonne page dans le DOM
    */
