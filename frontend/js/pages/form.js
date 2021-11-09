@@ -10,10 +10,10 @@ class Form extends Page {
         this.DOM.innerHTML = `
         <form class= "form_list" method="POST">
             <label for="lastName">Nom :</label>
-            <input type="text" pattern="[a-zA-Z -]+" placeholder="Nom" id="lastName" name="user_lastname" class="input_form" required="required">
+            <input type="text" pattern="[a-zA-Z -]+" placeholder="Nom" id="lastName" name="user_lastname" class="input_form" required>
         
             <label for="firstName">Prénom :</label>
-            <input type="text" placeholder="Prenom"  id="firstName" name="user_firstname" class="input_form" required maxlength="20">
+            <input type="text" pattern="^[a-zA-Z][a-zA-Z -_]{1,20}$" placeholder="Prenom"  id="firstName" name="user_firstname" class="input_form" required>
 
             <label for="address">Adresse :</label>
             <input type="text" placeholder="Adresse de livraison"  id="address" name="user_adress" class="input_form" required>
