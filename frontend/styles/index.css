@@ -331,7 +331,16 @@ main {
     "label input"
     "label input"
     "label input"
-    "btn btn";
+    "btn btn"
+    "data-msg data-msg";
+}
+
+form::after {
+    grid-area: data-msg;
+    justify-self: center;
+    content: attr(data-msg);
+    font-size: 2em;
+    color: red;
 }
 
 .form_list label {
